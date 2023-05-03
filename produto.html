@@ -1,0 +1,100 @@
+<body>
+    <script src="js/scriptServico.js"></script>
+    <div class="container-fluid">
+        <div class="alert bg-light">
+            <div class="row">
+                
+                    <div class="col">
+                        <h3 class="text-dark">Produto</h3>
+
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                    <div class="col">
+                        <button data-toggle="modal" data-target="#modalProduto" type="button" class="btn btn-info">Cadastrar</button>
+                        <button type="button" class="btn btn-outline-info">  <i class="fas fa-sliders-h"></i>Filtrar</button>
+
+                    </div>
+        
+                
+            </div>
+        </div>    
+       
+     <div class="alert bg-light" >
+        <div class="row">
+            <div class="col">
+                <table class="table ">
+                    <thead  class="bg-info text-dark">
+                            <th><strong>Descrição</strong></th>
+                            <th><strong>Valor</strong></th>
+                            <th><strong>Custo</strong></th>
+                            <th><strong>Lucro</strong></th>
+                            <th><strong>Margem de Lucro</strong></th>
+                            <th><strong>Ações</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-servico">
+                       
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    <!-- Cadastro de Serviço -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Serviço</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="form_Produto">
+            <div class="row">
+                
+                
+            </div>
+            <div class="col">
+                <div class="md-form">
+                    <input id="produto" name="produto" class="form-control" type="text">
+                    <label for="produto">Produto/Serviço</label>
+                </div>
+
+            </div>
+            <div class="col">
+                <div class="md-form">
+                    <input id="custo" name="custo" class="form-control" type="text">
+                    <label for="custo">Custo</label>
+                    
+                </div>
+                
+            </div>
+            <div class="col">
+                <div class="md-form">
+                    <input id="valor" name="valor" class="form-control" type="text">
+                    <label for="valor-produto">Valor</label>
+
+                </div>
+                    
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="cadastrar-produto" type="button" class="btn btn-primary">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/scriptServico.js"></script>
+</body>

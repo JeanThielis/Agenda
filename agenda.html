@@ -1,0 +1,283 @@
+<body>
+    <script src="js/scriptAgenda.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/alertas.js"></script>
+
+    
+    
+    <div class="container-fluid ">
+        <div class="alert bg-light ">
+            <div class="row ">
+                <div class="col">
+                    <h3 class="text-dark">Agenda</h3>
+                </div>
+                <div class="col">
+
+                </div>
+              
+                
+
+                <div class="col ">
+                    <button id="agendar" type="button" class="btn btn-primary" data-toggle="modal" data-target="#centralModalSm" >
+                        <i class="fas fa-1x fa-plus"></i>
+                        Agendar
+                    </button>
+                    
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#sideModalTR">
+                        <i class="fas fa-sliders-h"></i>
+                        Filtrar
+                    </button>
+
+                    
+                </div>
+            
+        </div>
+    </div>
+       
+        <div class="row ">
+            <div  class="col position-right">
+                <div  id="mostrarAgenda"></div>
+            
+                <div style="display:none;" id="mostrarImpresssao"></div>
+               
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+
+
+
+
+  <!-- Modal Cadastrar -->
+
+  <div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+
+  <!-- Change class .modal-sm to change the size of the modal -->
+  <div class="modal-dialog modal-lg" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Fazer Agendamento</h4>
+        
+        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="form_Agenda">
+            <input style='visibility: hidden' value="1"  id='funcao' name="funcao" type="text">
+            <div id="resultadoCadastro"></div>
+
+          <div class="row">
+           
+              <div class="col">
+
+                  <div class="md-form">
+                      <input type="text" name="nome" id="nome" class="form-control">
+                      <label for="nome">Nome</label>
+                  </div>
+                  
+
+              </div>
+              <div class="col">
+                    <div class="md-form">
+                        <input id="data" name="data" type="date" class="form-control">
+                        <label for="data">Data</label>
+
+                    </div>
+                 
+                  
+              </div>
+              <div class="col">
+                <div class="md-form">
+                    <input id="hora" name="hora" type="time" class="form-control">
+                    <label for="hora">Hora</label>
+
+                </div>
+                  
+              </div>
+
+          </div>
+          <div class="row">
+             
+              <div class="col">
+                  <div class="md-form">
+                      <input type="text" name="valor" id="valor" class="form-control">
+                      <label for="valor">Valor</label>
+                  </div>  
+              </div>
+              <div class="col">
+                  <label class="text-secondary" >Pagamento:</label>
+                  <select class="form-control text-secondary" name="pagamento" id="pagamento">
+                      <option selected >Selecione</option>
+                      <option>Entrada Feita</option>
+                      <option>Pendente</option>
+                      <option>Pago</option>
+                  </select>
+              </div>
+
+          </div>
+          <div class="row">
+              <div class="col">
+                  <div class="md-form">
+                      <input type="text" id="restante" name="restante" class="form-control">
+                      <label for="restante">Restante</label>
+                  </div>
+                  
+              </div>
+              <div class="col">
+                  <div class="md-form">
+                      <input type="text" id="bairro" name="bairro" class="form-control">
+                      <label for="bairro">Bairro</label>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="md-form">
+                      <input type="text" id="cidade" name="cidade" class="form-control">
+                      <label for="cidade">Cidade</label>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-4">
+                  <div class="md-form">
+                      <input type="text" name="cel" id="cel" class="form-control">
+                      <label for="cel">Celular</label>
+                  </div>
+
+              </div>
+              <div class="col-8">
+                  <div class="md-form">
+                      <input type="text" class="form-control" id="cores" name="cores"></input>
+                      <label for="cores">Cores</label>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col">
+                <div id="mostrarServico" >
+                   
+                  </div>
+            </div>
+            <div class="col">
+                <div id="mostrarValorServico"></div>
+            </div>
+            <div class="col">
+                <div class="md-form">
+                    <input type="text" id="quantidade" class="form-control" />
+                    <label class="form-label" for="quantidade">Quantidade</label>
+                   
+                  </div>
+            </div>
+            <div class="col">
+                <div class="form-outline">
+                    <br>
+                    <button type="button" class="btn btn-primary btn-sm">Adicionar</button>
+                  </div>
+            </div>
+            
+          </div>
+          <div class="row">
+            <div class="col">
+                <div class="col">
+                    <div id="tabelaServico"></div>
+                </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="salvar" class="btn btn-primary btn-sm">Salvar </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal Pesquisa -->
+
+  
+  <!-- To change the direction of the modal animation change .right class -->
+  <div class="modal fade right" id="sideModalTR" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+  
+    <!-- Add class .modal-side and then add class .modal-top-right (or other classes from list above) to set a position to the modal -->
+    <div class="modal-dialog modal-side modal-top-right" role="document">
+  
+  
+      <div  class="modal-content ">
+        <div class="modal-header bg-primary text-white ">
+          <h4 class="modal-title w-100" id="myModalLabel">
+            <i class="fas fa-2 fa-search"></i>
+            Pesquisa
+        </h4>
+          <button  type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-check form-check-inline">
+                <input value="0" class="form-check-input" type="radio" name="inlineRadioOptions" id="btn_radio1" >
+                <label class="form-check-label" for="btn_radio1">Concluído</label>
+            </div>
+              <div class="form-check form-check-inline">
+                <input value="1" class="form-check-input" type="radio" name="inlineRadioOptions" id="btn_radio2">
+                <label class="form-check-label" for="btn_radio2">Em Aberto</label>
+              </div>
+            
+            
+            <div  class="md-form">
+                <input type="text" class="form-control" id="pesquisar" name="pesquisar" disabled>
+                <label for="pesquisar">Pesquisar</label>
+                   
+            </div>
+            <div class="row">
+                
+                <div class="col">
+                    <div class="md-form">
+                        <input class="form-control" type="date" name="dataInicio" id="dataInicio">
+                        <label for="dataInicio">Data Inicio</label>
+                    </div>
+                    
+
+                </div>
+                <div class="col">
+                    <div class="md-form">
+                        <input class="form-control" type="date" name="dataFim" id="dataFim">
+                        <label for="dataFim">Data Fim</label>
+
+                    </div>
+                    
+
+                </div>
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button id="imprimir" style="width: 100%;" type="button" class="btn btn-info">Imprimir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal Adicionar Servico -->
+  <!-- Button trigger modal -->
+
+  
+ 
+ 
+
+
+
+
+</body>
