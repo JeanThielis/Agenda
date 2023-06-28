@@ -1,6 +1,6 @@
 <?php
 include_once("conexao.php");
-$sql = "select date_format(data_Cliente,'%a') as dia, date_format(data_Cliente,'%d/%m/%y'  ) as data ,time_format(hora,'%H:%i')as hora,nome_Cliente,servico,bairro,cidade,valor,restante,pagamento,cores,celular,id_Agenda from  Agenda where situacao = 1   order by data_Cliente; ";
+$sql = "select date_format(data_Cliente,'%a') as dia, date_format(data_Cliente,'%d/%m/%y'  ) as data ,time_format(hora,'%H:%i')as hora,time_format(horaChegada,'%H:%i')as horaChegada, nome_Cliente,servico,bairro,cidade,valor,restante,pagamento,cores,celular,id_Agenda from  Agenda where situacao = 1   order by data_Cliente; ";
 $resultado = mysqli_query($conn,$sql);
 $semana = array('Sun'=>'Domingo','Mon'=>'Segunda','Tue'=>'Terça','Wed'=>'Quarta','Thu'=>'Quinta','Fri'=>'Sexta','Sat'=>'Sábado');
 $sqlSoma = "select count(id_Agenda) as cont, sum(valor) as valorTotal, sum(restante) as restanteTotal,sum(valor)-sum(restante) as pagos from Agenda where situacao=1";
@@ -139,7 +139,7 @@ while($row = mysqli_fetch_assoc($resultadoSoma)){
               <div class="ms-3">
                 <p class="fw-bold mb-1"><?php echo $semana[$linha['dia']] ?></p>
                 <p class="fw-bold mb-1"><?php echo $linha['data']?></p>
-                <p class="text-muted mb-0"><?php echo $linha['hora']?></p>
+                <p class="text-muted mb-0"><?php echo $linha['horaChegada'].'|'.$linha['hora']?></p>
               </div>
             </div>
           </td>
