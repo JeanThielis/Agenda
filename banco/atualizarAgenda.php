@@ -8,6 +8,7 @@ if($funcao==1){
     $nome = $_POST['nome-editar'];
     $data = $_POST['data-editar'];
     $hora = $_POST['hora-editar'];
+    $horaChegada = $_POST['horaChegada-editar'];
     $servico = $_POST['servico-editar'];
     $valor = floatval($_POST['valor-editar']);
     $pagamento = $_POST['pagamento-editar'];
@@ -20,7 +21,7 @@ if($funcao==1){
     echo "passou pelo if";
 
 
-    $sql ="update Agenda  set situacao = '$situacao', restante = '$restante',pagamento='$pagamento',nome_Cliente='$nome',data_Cliente = '$data',hora = '$hora',servico ='$servico',valor = '$valor',bairro = '$bairro',cidade = '$cidade',celular = '$cel',cores = '$cores' where id_Agenda='$id'";
+    $sql ="update Agenda  set situacao = '$situacao', restante = '$restante',pagamento='$pagamento',nome_Cliente='$nome',data_Cliente = '$data',hora = '$hora',horaChegada='$horaChegada',servico ='$servico',valor = '$valor',bairro = '$bairro',cidade = '$cidade',celular = '$cel',cores = '$cores' where id_Agenda='$id'";
 
 
 }else{

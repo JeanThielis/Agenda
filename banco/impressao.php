@@ -11,14 +11,14 @@ $semana = array('Sun'=>'Domingo','Mon'=>'Segunda','Tue'=>'Terça','Wed'=>'Quarta
 
 
 if($funcao == 1){
-  $sql = "select date_format(data_Cliente,'%a') as dia, date_format(data_Cliente,'%d/%m/%y') as data ,time_format(hora,'%H:%i')as hora,nome_Cliente,servico,bairro,cidade,valor,restante,pagamento,cores,celular,id_Agenda  from Agenda where data_Cliente between '$dataI' and '$dataF' and situacao = $situacao order by data_Cliente";
+  $sql = "select date_format(data_Cliente,'%a') as dia, date_format(data_Cliente,'%d/%m/%y') as data ,time_format(hora,'%H:%i')as hora,nome_Cliente,servico,bairro,cidade,valor,restante,pagamento,cores,celular,id_Agenda,time_format(horaChegada,'%H:%i')as horaChegada  from Agenda where data_Cliente between '$dataI' and '$dataF' and situacao = $situacao order by data_Cliente";
 
 }
 elseif($buscar == " "){
-  $sql = "select count(id_Agenda) as cont, sum(valor) as valorTotal, sum(restante) as restanteTotal,sum(valor)- sum(restante) as pagos , date_format(data_Cliente,'%a') as dia, date_format(data_Cliente,'%d/%m/%y') as data ,time_format(hora,'%H:%i')as hora,nome_Cliente,servico,bairro,cidade,valor,restante,pagamento,cores,celular,id_Agenda  from Agenda where situacao = 1 order by data_Cliente";
+  $sql = "select count(id_Agenda) as cont, sum(valor) as valorTotal, sum(restante) as restanteTotal,sum(valor)- sum(restante) as pagos , date_format(data_Cliente,'%a') as dia, date_format(data_Cliente,'%d/%m/%y') as data ,time_format(hora,'%H:%i')as hora,nome_Cliente,servico,bairro,cidade,valor,restante,pagamento,cores,celular,id_Agenda,time_format(horaChegada,'%H:%i')as horaChegada  from Agenda where situacao = 1 order by data_Cliente";
 
 }else{
-  $sql = "select date_format(data_Cliente,'%a') as dia, date_format(data_Cliente,'%d/%m/%y') as data ,time_format(hora,'%H:%i')as hora,nome_Cliente,servico,bairro,cidade,valor,restante,pagamento,cores,celular,id_Agenda  from Agenda where  nome_Cliente like '$buscar%' and situacao=$situacao order by data_Cliente";
+  $sql = "select date_format(data_Cliente,'%a') as dia, date_format(data_Cliente,'%d/%m/%y') as data ,time_format(hora,'%H:%i')as hora,nome_Cliente,servico,bairro,cidade,valor,restante,pagamento,cores,celular,id_Agenda,time_format(horaChegada,'%H:%i')as horaChegada  from Agenda where  nome_Cliente like '$buscar%' and situacao=$situacao order by data_Cliente";
 
 
 }
@@ -41,7 +41,7 @@ $resultado = mysqli_query($conn,$sql);
     ?>
     <div class="row text-primary m-3">
       <div class="col">
-       <strong>  <?php echo $semana[$linha['dia']].' - '.$linha['data'].' - '. $linha['hora'].' | '. $linha['nome_Cliente'].' | '.$linha['celular']?></strong><br>
+       <strong>  <?php echo $semana[$linha['dia']].' - '.$linha['data'].' - '.$linha['horaChegada'].' | '. $linha['hora'].' | '. $linha['nome_Cliente'].' | '.$linha['celular']?></strong><br>
        <strong>Local: </strong> <?php echo $linha['bairro'].' - '. $linha['cidade']?><br>
        <strong>Serviço: </strong> <?php echo $linha['servico']?><br>
        <strong>Pagamento: </strong><?php echo $linha['pagamento'].' | <strong>Valor: </strong>R$'.number_format($linha['valor'],2,',').' | '.'<strong>Restante: </strong>R$'. number_format($linha['restante'],2,',')?><br>
