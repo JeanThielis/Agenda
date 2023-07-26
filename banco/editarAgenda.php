@@ -10,7 +10,14 @@ $resultado=mysqli_query($conn, $sql);
 while($linha=mysqli_fetch_assoc($resultado)){
     ?>
   
-  
+  <script>
+
+function calculaRestante(){
+    valor = getElementById('valor-editar').value;
+    restante = parseint(valor)/2;
+    getElementById('restante-editar').value=restante; 
+}
+  </script>
          <form class='bg-light p-2' id="form_Editar">
          <i class="editar fas  fa-edit">
          </i>
@@ -67,7 +74,7 @@ while($linha=mysqli_fetch_assoc($resultado)){
               <div class="col">
               <label class='text-secondary' >Restante</label>
 
-                      <input value="<?php echo $linha['restante']?>" type="text" id="restante-editar" name="restante-editar" class="form-control">
+                      <input onclick='calculaRestante()' value="<?php echo $linha['restante']?>" type="text" id="restante-editar" name="restante-editar" class="form-control">
                   
               </div>
               <div class="col">
