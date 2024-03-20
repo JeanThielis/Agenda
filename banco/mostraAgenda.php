@@ -137,8 +137,7 @@ while($row = mysqli_fetch_assoc($resultadoSoma)){
           <td>
             <div class="d-flex align-items-center">
               <div class="ms-3">
-                <p class="fw-bold mb-1"><?php echo $semana[$linha['dia']] ?></p>
-                <p class="fw-bold mb-1"><?php echo $linha['data']?></p>
+                <p class="fw-bold mb-1"><?php echo $linha['data'].' - '.$semana[$linha['dia']] ?></p>
                 <p class="text-muted mb-0"><?php echo $linha['horaChegada'].'|'.$linha['hora']?></p>
               </div>
             </div>

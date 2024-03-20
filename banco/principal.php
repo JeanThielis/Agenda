@@ -4,7 +4,7 @@ include_once("conexao.php");
 
 
 
-$ano='2023';
+$ano='2024';
 $anos = $_POST['anos'];
 
 
@@ -67,7 +67,7 @@ $resultado = mysqli_query($conn,$sql);
     <tfoot>
 
     <tr>
-        <td><strong>Total do Ano</strong></td>
+        <td><b>Total do Ano</b></td>
         <td> <?php echo $total?> </td>
         <td>R$<?php echo number_format($totalAnul,2,',','.')?></td>
     </tr>
